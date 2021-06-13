@@ -22,7 +22,7 @@ import styled from 'styled-components'
 import { useForm } from '../../hooks/useForm'
 import { removeError, setError } from '../../actions/uiAction'
 import validator from 'validator'
-import { startGoogleLogin, startLogin } from '../../actions/authAction'
+import { startGoogleLogin, startFacebookLogin, startLogin } from '../../actions/authAction'
 
 const DivFondo = styled.div`
     background: url('https://i.ibb.co/jzwCKMb/BG.png') center;
@@ -115,7 +115,7 @@ const Login = () => {
     }
 
     const handleFacebookLogin = () => {
-        console.log('Facebook');
+        dispatch(startFacebookLogin())
     }
 
     return (
