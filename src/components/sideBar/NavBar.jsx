@@ -57,7 +57,7 @@ const NavBar = () => {
             background="#0F0E17"
             color="white"
         >
-            {/* <Flex align="center">
+            <Flex align="center">
                 <img src="https://i.ibb.co/L9gqLtb/logo-block-Master.png" alt="logo-block-Master" border="0" width='100px' height='60px' />
             </Flex>
 
@@ -145,7 +145,7 @@ const NavBar = () => {
                 </Menu>
             </Stack>
 
-            <Box display={{ base: isOpen ? "block" : "none", md: "block" }} mt={{ base: 4, md: 0 }}>
+            {/* <Box display={{ base: isOpen ? "block" : "none", md: "block" }} mt={{ base: 4, md: 0 }}>
                 <Button onClick={handleLogout} background='#2832c2' color='#FED941' _hover={{ background: '#FED941', color: '#2832c2' }}>Logout</Button>
             </Box> */}
         </Flex>
