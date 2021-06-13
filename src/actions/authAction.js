@@ -1,11 +1,11 @@
-import { db, firebase, googleAuthProvider } from "../firebase/firebase-config";
+import { firebase, googleAuthProvider } from "../firebase/firebase-config";
 import { types } from "../types/types";
 import { finishLoading, startLoading } from "./uiAction";
 
 export const startLogin = (email, password) => {
     return (dispatch) => {
         return firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(({ user }) =>{
+            .then(({ user }) => {
                 dispatch(startLoading())
                 dispatch(login(user.uid, user.displayName, user.email, user.photoURL))
             })
@@ -19,7 +19,7 @@ export const startLogin = (email, password) => {
 export const startGoogleLogin = () => {
     return (dispatch) => {
         firebase.auth().signInWithPopup(googleAuthProvider)
-            .then( async ({ user }) => {
+            .then(async ({ user }) => {
                 dispatch(login(user.uid, user.displayName, user.email, user.photoURL))
             })
     }
@@ -28,7 +28,7 @@ export const startGoogleLogin = () => {
 export const startRegisterUser = (name, lastName, email, password) => {
     return (dispatch) => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then( async ({ user }) => {
+            .then(async ({ user }) => {
                 await user.updateProfile({ displayName: name + ' ' + lastName })
 
                 dispatch(login(user.uid, user.displayName, user.email, user.photoURL))
