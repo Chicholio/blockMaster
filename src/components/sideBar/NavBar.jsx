@@ -74,7 +74,7 @@ const NavBar = () => {
                 mt={{ base: 4, md: 0 }}
                 justifyContent='center'
             >
-                <Text>All</Text>
+                <Link to='/home'>All</Link>
             </Stack>
 
             <Stack
@@ -132,8 +132,7 @@ const NavBar = () => {
                 <Menu className='hola'>
                     <MenuButton children={<Avatar name="Dan Abrahmov" src={image} />} />
                     <MenuList background='#0F0E17' color='#FED941'>
-                        <MenuItem _hover={{ background: '#FED941', color: '#2832c2' }}>Profile</MenuItem>
-                        <MenuItem _hover={{ background: '#FED941', color: '#2832c2' }}>See later</MenuItem>
+                        <MenuItem background='transparent !important' _hover={{ background: '#FED941 !important', color: '#2832c2' }}>Profile</MenuItem>
                         {
                             email === 'chicholoncia@gmail.com'
                             &&
