@@ -6,5 +6,9 @@ export const types = {
     uiRemoveError: 'RemoveError',
 
     uiStartLoading: 'StartLoading',
-    uiFinishLoading: 'FinishLoading'
+    uiFinishLoading: 'FinishLoading',
+
+    addMovie: 'Add Movie',
+    updateMovie: 'Update Movie',
+    loadMovie: 'Load Movie'
 }

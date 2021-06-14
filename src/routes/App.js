@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import firebase from 'firebase'
 import {
   BrowserRouter as Router,
-  Route,
   Redirect,
   Switch
 } from 'react-router-dom'
@@ -13,8 +12,8 @@ import { PrivateRouter } from './PrivateRoute';
 import { PublicRouter } from './PublicRoute';
 import Home from '../containers/home/Home';
 import AuthRoutes from './AuthRoutes';
-import Login from '../containers/login/Login';
-import Register from '../containers/register/Register';
+import AddMovie from '../containers/addmovie/AddMovie';
+import ContenedorNav from '../containers/sideBar/ContenedorNav';
 
 function App() {
 
@@ -46,9 +45,12 @@ function App() {
       <Router>
         <Switch>
           <PublicRouter path='/auth' component={AuthRoutes} isAuthenticated={isLoogedIn} />
-          <PrivateRouter path='/home' component={Home} isAuthenticated={isLoogedIn} />
-          {/* <Route exact path='/auth/login' component={Login} />
+          <ContenedorNav>
+            <PrivateRouter path='/home' component={Home} isAuthenticated={isLoogedIn} />
+            <PrivateRouter path='/addmovies' component={AddMovie} isAuthenticated={isLoogedIn} />
+            {/* <Route exact path='/auth/login' component={Login} />
           <Route exact path='/auth/register' component={Register} /> */}
+          </ContenedorNav>
           <Redirect to='/auth/login' />
         </Switch>
       </Router>

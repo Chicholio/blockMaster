@@ -23,9 +23,9 @@ import { startLogout } from '../../actions/authAction';
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { FaSearch } from 'react-icons/fa';
 
-const InputLogin = styled(InputGroup)`
+const InputSearch = styled(InputGroup)`
     background: #FFFFFE;
-    opacity: 0.5;
+    /* opacity: 0.5; */
     color: #000000;
     border-radius: 20px;
 `
@@ -110,13 +110,13 @@ const NavBar = () => {
                 mt={{ base: 4, md: 0 }}
             >
                 <FormControl>
-                    <InputLogin>
+                    <InputSearch>
                         <InputLeftElement
                             pointerEvents='none'
                             children={<FaSearch color="#0F0E17" />}
                         />
-                        <Input type='search' placeholder='Email address' name='user' borderRadius={20} />
-                    </InputLogin>
+                        <Input type='search' placeholder='Search...' name='search' borderRadius={20} />
+                    </InputSearch>
                 </FormControl>
             </Stack>
 
@@ -129,14 +129,16 @@ const NavBar = () => {
                 mt={{ base: 4, md: 0 }}
                 justifyContent='center'
             >
-                <Menu className='hola'>
+                <Menu>
                     <MenuButton children={<Avatar name="Dan Abrahmov" src={image} />} />
                     <MenuList background='#0F0E17' color='#FED941'>
                         <MenuItem background='transparent !important' _hover={{ background: '#FED941 !important', color: '#2832c2' }}>Profile</MenuItem>
                         {
                             email === 'chicholoncia@gmail.com'
                             &&
-                            <MenuItem _hover={{ background: '#FED941', color: '#2832c2' }}>Add movie</MenuItem>
+                            <Link to = '/addmovies'>
+                                <MenuItem _hover={{ background: '#FED941', color: '#2832c2' }}>Add movie</MenuItem>
+                            </Link>
                         }
                         <hr background='#FED941' />
                         <MenuItem onClick={handleLogout} _hover={{ background: '#FED941', color: '#2832c2' }}>Logout</MenuItem>
