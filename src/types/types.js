@@ -10,5 +10,6 @@ export const types = {
 
     addMovie: 'Add Movie',
     updateMovie: 'Update Movie',
-    loadMovie: 'Load Movie'
+    loadMovie: 'Load Movie',
+    activeMovie: 'Active Movie'
 }

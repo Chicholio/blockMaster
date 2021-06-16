@@ -10,10 +10,12 @@ import {
 import { login } from '../actions/authAction';
 import { PrivateRouter } from './PrivateRoute';
 import { PublicRouter } from './PublicRoute';
-import Home from '../containers/home/Home';
+// import Home from '../containers/home/Home';
 import AuthRoutes from './AuthRoutes';
-import AddMovie from '../containers/addmovie/AddMovie';
-import ContenedorNav from '../containers/sideBar/ContenedorNav';
+// import AddMovie from '../containers/addmovie/AddMovie';
+// import ContenedorNav from '../containers/sideBar/ContenedorNav';
+import NavRoutes from './NavRoutes';
+import { startLoadingMovie } from '../actions/movieAction';
 
 function App() {
 
@@ -27,6 +29,7 @@ function App() {
       if (user?.uid) {
         dispatch(login(user.uid, user.displayName, user.email, user.photoURL))
         setIsLoogedIn(true)
+        dispatch(startLoadingMovie('movies'))
       } else {
         setIsLoogedIn(false)
       }
@@ -45,12 +48,10 @@ function App() {
       <Router>
         <Switch>
           <PublicRouter path='/auth' component={AuthRoutes} isAuthenticated={isLoogedIn} />
-          <ContenedorNav>
-            <PrivateRouter path='/home' component={Home} isAuthenticated={isLoogedIn} />
-            <PrivateRouter path='/addmovies' component={AddMovie} isAuthenticated={isLoogedIn} />
-            {/* <Route exact path='/auth/login' component={Login} />
+          <PrivateRouter path='/' component={NavRoutes} isAuthenticated={isLoogedIn} />
+          {/* <PrivateRouter path='/addmovies' component={AddMovie} isAuthenticated={isLoogedIn} /> */}
+          {/* <Route exact path='/auth/login' component={Login} />
           <Route exact path='/auth/register' component={Register} /> */}
-          </ContenedorNav>
           <Redirect to='/auth/login' />
         </Switch>
       </Router>
